@@ -3,28 +3,46 @@ import torchvision.transforms as transforms
 import cv2
 import numpy as np
 from torch.autograd import Variable
+import torch.nn as nn
+import torch.nn.functional as F
 
 labels_to_include = ['Drag', 'Loupe', 'Point', 'Scale', 'None']
 
-class CNNModel(torch.nn.Module):
+# Define a more complex CNN model with batch normalization and dropout
+class CNNModel(nn.Module):
     def __init__(self):
         super(CNNModel, self).__init__()
-        self.conv1 = torch.nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1)
-        self.pool = torch.nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
-        self.fc1 = torch.nn.Linear(16 * 112 * 112, 256)  # Adjust input size based on image dimensions
-        self.fc2 = torch.nn.Linear(256, len(labels_to_include))  # Output size based on number of classes
-
+        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1)
+        self.bn1 = nn.BatchNorm2d(16)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
+        self.bn2 = nn.BatchNorm2d(32)
+        
+        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1)
+        self.bn3 = nn.BatchNorm2d(64)
+        
+        self.fc1 = nn.Linear(64 * 28 * 28, 256)
+        self.dropout = nn.Dropout(0.5)
+        
+        self.fc2 = nn.Linear(256, len(labels_to_include))
+        
     def forward(self, x):
-        x = self.pool(torch.nn.functional.relu(self.conv1(x)))
-        x = x.view(-1, 16 * 112 * 112)  # Adjust based on input size
-        x = torch.nn.functional.relu(self.fc1(x))
+        x = self.pool(F.relu(self.bn1(self.conv1(x))))
+        x = self.pool(F.relu(self.bn2(self.conv2(x))))
+        x = self.pool(F.relu(self.bn3(self.conv3(x))))
+        
+        x = x.view(-1, 64 * 28 * 28)
+        x = self.dropout(x)
+        
+        x = F.relu(self.fc1(x))
         x = self.fc2(x)
         return x
 # Load the model architecture
 model = CNNModel()
 
 # Load the model state dictionary
-model_metadata = torch.load('saved_models\\5_hand_gesture_model_metadata.pth')
+model_metadata = torch.load('test_model\hand_gesture_model_40val_metadata.pth')
 model.load_state_dict(model_metadata['model_state_dict'])
 
 # Set the model to evaluation mode
