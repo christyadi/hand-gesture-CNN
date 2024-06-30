@@ -71,7 +71,7 @@ while True:
     cv2.putText(frame, predicted_label, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
     
     # Display the frame
-    cv2.imshow('Hand Gesture Recognition, press Q to exit', frame)
+    cv2.imshow('Hand Gesture Recognition with VGG-16 model', frame)
 
     # Break the loop on pressing 'q' key
     if cv2.waitKey(1) & 0xFF == ord('q'):
