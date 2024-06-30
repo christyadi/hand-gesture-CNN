@@ -25,6 +25,8 @@ The dataset encompasses the following gesture categories:
 - **Loupe**: Samples including loupe gestures.
 - **Pinch**: Sequences of dynamic pinch gestures.
 - **None**: Samples where no hand appears.
+  
+![hand_gesture_samples](https://github.com/christyadi/hand-gesture-CNN/assets/118226145/52100c0d-e622-4524-950f-ef8e44422902)
 
 The dataset is highly suitable for training robust hand gesture recognition models due to its quality and diversity, as evidenced by several key factors:
 
