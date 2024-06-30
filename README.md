@@ -2,9 +2,13 @@
 
 By Jonathan Christyadi - 502705
 
+https://github.com/christyadi/hand-gesture-CNN/assets/118226145/04a0cfd8-d078-461e-a683-e36f479d9f57
+
+https://github.com/christyadi/hand-gesture-CNN/assets/118226145/c42afbcb-6a29-4229-8d8f-d3da5a4ae197
+
 ## Introduction
 
-Hand gesture recognition is a critical component of human-computer interaction, enabling intuitive control of devices using natural hand movements. This project focuses on the development and evaluation of a Convolutional Neural Network (CNN) model for recognizing various hand gestures, utilizing a comprehensive dataset provided by the Universidad de Alicante. The dataset comprises real images, synthetic images, and scene descriptions, designed to train and evaluate hand gesture detection methods.
+Hand gesture recognition is a critical component of human-computer interaction, enabling intuitive control of devices using natural hand movements. This project focuses on the development and evaluation of a Convolutional Neural Network (CNN) and VGG-16 model for recognizing various hand gestures, utilizing a comprehensive dataset provided by the Universidad de Alicante. The dataset comprises real images, synthetic images, and scene descriptions, designed to train and evaluate hand gesture detection methods.
 
 ## Dataset Overview
 
@@ -21,6 +25,8 @@ The dataset encompasses the following gesture categories:
 - **Loupe**: Samples including loupe gestures.
 - **Pinch**: Sequences of dynamic pinch gestures.
 - **None**: Samples where no hand appears.
+  
+![hand_gesture_samples](https://github.com/christyadi/hand-gesture-CNN/assets/118226145/52100c0d-e622-4524-950f-ef8e44422902)
 
 The dataset is highly suitable for training robust hand gesture recognition models due to its quality and diversity, as evidenced by several key factors:
 
