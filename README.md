@@ -2,6 +2,7 @@
 
 By Jonathan Christyadi - 502705
 
+[Hand Gesture Detection Using VGG-16](https://youtu.be/77BezF4--8k)
 ## Introduction
 
 Hand gesture recognition is a critical component of human-computer interaction, enabling intuitive control of devices using natural hand movements. This project focuses on the development and evaluation of a Convolutional Neural Network (CNN) model for recognizing various hand gestures, utilizing a comprehensive dataset provided by the Universidad de Alicante. The dataset comprises real images, synthetic images, and scene descriptions, designed to train and evaluate hand gesture detection methods.
