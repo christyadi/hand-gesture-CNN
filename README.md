@@ -2,6 +2,8 @@
 
 By Jonathan Christyadi - 502705
 
+**Modelling Code Explanation**: https://youtu.be/CydffqmM2lM
+
 https://github.com/christyadi/hand-gesture-CNN/assets/118226145/04a0cfd8-d078-461e-a683-e36f479d9f57
 
 https://github.com/christyadi/hand-gesture-CNN/assets/118226145/c42afbcb-6a29-4229-8d8f-d3da5a4ae197
